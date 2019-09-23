@@ -1,0 +1,49 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - db/schema.rb
+    - db/restore_schema.rb
+    - db/migrate/*
+    - node_modules/**/*
+    - vendor/bundle/**/*
+    - config/initializers/devise.rb
+    - config/environments/development.rb
+    - lib/tasks/auto_annotate_models.rake
+    - config/initializers/devise.rb
+    - config/environments/development.rb
+    - config/environments/production.rb
+    - bin/*
+
+Metrics/LineLength:
+  Enabled: true
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - config/routes.rb
+    - spec/**/*
+    - config/initializers/devise.rb
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '()'
+    '%w': '()'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FormatStringToken:
+  EnforcedStyle: template
