@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "2.6.2"
+ruby "2.6.4"
 
 gem "jbuilder", "~> 2.7"
 gem "mysql2", ">= 0.4.4"

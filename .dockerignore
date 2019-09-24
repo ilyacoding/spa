@@ -1,0 +1,16 @@
+.git
+log/*
+tmp/*
+!log/.keep
+!tmp/.keep
+.bundle/
+package.json
+package-lock.json
+public/assets
+public/packs
+vendor/bundle
+.idea
+**/.DS_Store
+/spec/coverage
+Dockerfile
+docker-compose.yml
