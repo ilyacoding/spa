@@ -46,5 +46,8 @@ services:
   clickhouse:
     image: yandex/clickhouse-server:19.14
     restart: unless-stopped
+    volumes:
+      - clickhouse-db:/var/lib/clickhouse
 volumes:
   mysql-db:
+  clickhouse-db:

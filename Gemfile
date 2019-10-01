@@ -2,13 +2,13 @@
 
 source "https://rubygems.org"
 
-ruby "2.6.4"
-
+gem "faraday"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 3.11"
 gem "rails", "~> 6.0.0"
 gem "sidekiq"
+gem "sidekiq-cron"
 gem "webpacker", "~> 4.0"
 
 gem "bootsnap", ">= 1.4.2", require: false

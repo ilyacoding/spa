@@ -1,0 +1,4 @@
+prices_fetcher_job:
+  cron: "*/30 * * * *" # execute at every 30 minutes
+  class: "PricesFetcherJob"
+  queue: high
