@@ -37,7 +37,7 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     volumes:
-      - mysql-db:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
     ports:
       - 3308:3306
     environment:
@@ -47,7 +47,4 @@ services:
     image: yandex/clickhouse-server:19.14
     restart: unless-stopped
     volumes:
-      - clickhouse-db:/var/lib/clickhouse
-volumes:
-  mysql-db:
-  clickhouse-db:
+      - ./data/clickhouse:/var/lib/clickhouse
