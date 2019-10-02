@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App:</strong>
+  <%= @item.app_id %>
+</p>
+
+<p>
+  <strong>Market hash name:</strong>
+  <%= @item.market_hash_name %>
+</p>
+
+<p>
+  <strong>Rarity:</strong>
+  <%= @item.rarity %>
+</p>
+
+<p>
+  <strong>Quality:</strong>
+  <%= @item.quality %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
