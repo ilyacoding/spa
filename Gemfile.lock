@@ -206,12 +206,12 @@ DEPENDENCIES
   mysql2 (>= 0.4.4)
   puma (~> 3.11)
   rails (~> 6.0.0)
+  rake
   rubocop
   sidekiq
   sidekiq-cron
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
