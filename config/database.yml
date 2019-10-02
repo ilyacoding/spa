@@ -17,6 +17,16 @@ default: &default
   password:
   host: mysql
 
+development_clickhouse:
+  adapter: clickhouse
+  database: steam_prices_analyzer
+  host: clickhouse
+  port: 8123
+  username: default
+  password:
+  # ssl: true # optional for using ssl connection
+  debug: true # use for showing in to log technical information
+
 development:
   <<: *default
   database: steam_prices_analyzer_development
