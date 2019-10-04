@@ -1,4 +1,4 @@
 prices_fetcher_job:
-  cron: "0 */12 * * *" # execute at every 30 minutes
+  cron: "*/30 * * * *" # execute at every 30 minutes
   class: "Bitskins::PricesFetcherJob"
   queue: high
