@@ -4,7 +4,7 @@ services:
     build: .
   web:
     image: spa_base:latest
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec bin/rails s -p 1111 -b '0.0.0.0'"
+    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 1111 -b '0.0.0.0'"
     restart: unless-stopped
     environment:
       REDIS_URL: "redis://redis:6379/0"
@@ -15,6 +15,7 @@ services:
     links:
       - mysql
       - redis
+      - clickhouse
     stdin_open: true
     tty: true
   worker:
@@ -28,6 +29,7 @@ services:
     links:
       - mysql
       - redis
+      - clickhouse
     stdin_open: true
     tty: true
   redis:

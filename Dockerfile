@@ -1,27 +1,21 @@
 FROM ruby:2.6.4-slim
 
-ENV LANG C.UTF-8
-RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime
-
 RUN apt-get update && apt-get install -y curl \
   git \
   gnupg \
+  g++ \
+  libnotify4 \
   default-libmysqlclient-dev \
   cmake \
-  pkg-config \
-  g++
+  pkg-config
 
-ENV NODE_VERSION 8
-
-RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
-RUN apt-get update && apt-get install -y nodejs \
-  yarn \
-  libnotify4
+RUN apt-get update && apt-get install -y nodejs yarn
 
-RUN mkdir /app
+RUN mkdir -p /app
 WORKDIR /app
 
 COPY Gemfile /app/Gemfile
