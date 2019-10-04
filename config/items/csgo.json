@@ -1,5 +1,6 @@
 {
-  "items": [
+  "status": "success",
+  "prices": [
     {
       "app_id": "730",
       "context_id": "2",

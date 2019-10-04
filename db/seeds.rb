@@ -31,7 +31,7 @@ file = File.read(Rails.root.join("config", "items", "csgo.json"))
 data = JSON.parse(file).with_indifferent_access
 
 ActiveRecord::Base.transaction do
-  data["items"].each do |item|
+  data["prices"].each do |item|
     next if Item.find_by(market_hash_name: item["market_hash_name"]).present?
 
     rarity_color = item["quality_color"]
