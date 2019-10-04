@@ -3,22 +3,22 @@ services:
   base:
     build: .
   web:
-    image: steam-prices-analyzer_base:latest
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec bin/rails s -p 3000 -b '0.0.0.0'"
+    image: spa_base:latest
+    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec bin/rails s -p 1111 -b '0.0.0.0'"
     restart: unless-stopped
     environment:
       REDIS_URL: "redis://redis:6379/0"
     volumes:
       - .:/app
     ports:
-      - 3000:3000
+      - 1111:1111
     links:
       - mysql
       - redis
     stdin_open: true
     tty: true
   worker:
-    image: steam-prices-analyzer_base:latest
+    image: spa_base:latest
     command: bundle exec sidekiq -C config/sidekiq.yml
     restart: unless-stopped
     environment:
@@ -37,9 +37,7 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     volumes:
-      - ./data/mysql:/var/lib/mysql
-    ports:
-      - 3308:3306
+      - mysql-db:/var/lib/mysql
     environment:
       MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
@@ -47,4 +45,7 @@ services:
     image: yandex/clickhouse-server:19.14
     restart: unless-stopped
     volumes:
-      - ./data/clickhouse:/var/lib/clickhouse
+      - clickhouse-db:/var/lib/clickhouse
+volumes:
+  mysql-db:
+  clickhouse-db:
