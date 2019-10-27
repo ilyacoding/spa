@@ -1,26 +1,7 @@
 version: '3.7'
 services:
-  base:
+  sidekiq:
     build: .
-  web:
-    image: spa_base:latest
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 1111 -b '0.0.0.0'"
-    restart: unless-stopped
-    environment:
-      REDIS_URL: "redis://redis:6379/0"
-    volumes:
-      - .:/app
-      - /app/tmp
-    ports:
-      - 1111:1111
-    links:
-      - mysql
-      - redis
-      - clickhouse
-    stdin_open: true
-    tty: true
-  worker:
-    image: spa_base:latest
     command: bundle exec sidekiq -C config/sidekiq.yml
     restart: unless-stopped
     environment:
@@ -49,7 +30,12 @@ services:
     image: yandex/clickhouse-server:19.14
     restart: unless-stopped
     volumes:
-      - clickhouse-db:/var/lib/clickhouse
+      - ./data/clickhouse:/var/lib/clickhouse
+  grafana:
+    image: grafana/grafana:6.4.1
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+    ports:
+      - 7000:3000
 volumes:
   mysql-db:
-  clickhouse-db:

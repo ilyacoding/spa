@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+data/clickhouse
 
 /public/assets
 .byebug_history
