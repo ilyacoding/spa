@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+# app_id
+# market_hash_name
+# rarity
+# quality
+# price
+# instant_sale_price
+# created_at
+# date
+
 class ItemPrice
   include Clickhouse::Table
 
